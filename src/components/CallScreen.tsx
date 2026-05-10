@@ -40,14 +40,15 @@ export const CallScreen: React.FC<CallScreenProps> = ({ number, status, onEndCal
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '80px 20px',
-        backgroundColor: 'rgba(0,0,0,0.9)'
+        justifyContent: 'center', // Centers the call screen content
+        padding: '20px',
+        backgroundColor: 'rgba(0,0,0,0.95)'
       }}
     >
-      <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+      <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 10vw, 60px)' }}>
         <div style={{ 
-          width: '100px', 
-          height: '100px', 
+          width: 'clamp(80px, 20vw, 100px)', 
+          height: 'clamp(80px, 20vw, 100px)', 
           borderRadius: '50%', 
           background: '#333', 
           display: 'flex', 
@@ -55,9 +56,9 @@ export const CallScreen: React.FC<CallScreenProps> = ({ number, status, onEndCal
           justifyContent: 'center',
           margin: '0 auto 20px'
         }}>
-          <User size={60} color="#666" />
+          <User size={50} color="#666" />
         </div>
-        <h2 style={{ fontSize: '32px', fontWeight: '400', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: 'clamp(24px, 6vw, 32px)', fontWeight: '400', marginBottom: '8px' }}>
             {status === 'connected' ? 'Unknown' : number}
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.6)', textTransform: 'capitalize' }}>
@@ -68,8 +69,8 @@ export const CallScreen: React.FC<CallScreenProps> = ({ number, status, onEndCal
       <div style={{ 
         display: 'grid', 
         gridTemplateColumns: 'repeat(3, 1fr)', 
-        gap: '30px',
-        marginBottom: 'auto',
+        gap: 'clamp(20px, 5vw, 30px)',
+        marginBottom: 'clamp(40px, 10vw, 60px)',
         width: '100%',
         maxWidth: '280px'
       }}>

@@ -23,10 +23,11 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100svh;
 }
 
 #root {
-  height: 100vh;
+  height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,43 +35,43 @@ body {
 
 .phone-container {
   width: 100%;
-  max-width: 420px;
-  height: 90vh;
-  max-height: 850px;
-  background: var(--bg-color);
+  max-width: 450px;
+  height: 100svh;
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 60px 20px 40px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid #222;
-  border-radius: 50px;
-  margin: 20px;
+  padding: 20px;
   overflow: hidden;
 }
 
+/* Glass panel for the call screen overlay */
 .glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Keypad Styles */
 .keypad-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: clamp(15px, 5vw, 25px);
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
 .key-button {
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background: #333;
+  background: #262629;
   border: none;
   color: white;
   display: flex;
@@ -78,39 +79,39 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.1s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .key-button:active {
-  background: #555;
-  transform: scale(0.92);
+  background: #444;
+  transform: scale(0.95);
 }
 
 .key-number {
-  font-size: 32px;
+  font-size: clamp(28px, 9vw, 36px);
   font-weight: 400;
   line-height: 1;
 }
 
 .key-letters {
-  font-size: 10px;
+  font-size: clamp(8px, 2vw, 10px);
   font-weight: 600;
   letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   margin-top: 2px;
   text-transform: uppercase;
 }
 
 .call-button-container {
-  margin-top: 40px;
+  margin-top: clamp(30px, 10vw, 50px);
   display: flex;
   justify-content: center;
 }
 
 .call-button {
-  width: 75px;
-  height: 75px;
+  width: clamp(70px, 20vw, 85px);
+  height: clamp(70px, 20vw, 85px);
   border-radius: 50%;
   background: var(--accent-green);
   border: none;
@@ -120,7 +121,7 @@ body {
   color: white;
   cursor: pointer;
   transition: transform 0.2s;
-  box-shadow: 0 0 20px rgba(52, 199, 89, 0.3);
+  box-shadow: 0 0 30px rgba(52, 199, 89, 0.2);
 }
 
 .call-button:active {
@@ -129,29 +130,5 @@ body {
 
 .end-call-button {
   background: var(--accent-red);
-}
-
-/* Animations */
-@keyframes ring {
-  0% { transform: translateY(0); }
-  25% { transform: translateY(-5px) rotate(1deg); }
-  75% { transform: translateY(5px) rotate(-1deg); }
-  100% { transform: translateY(0); }
-}
-
-.animate-ring {
-  animation: ring 0.5s infinite;
-}
-
-@keyframes glitch {
-  0% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
-  20% { clip: rect(12px, 9999px, 90px, 0); transform: skew(0.2deg); }
-  40% { clip: rect(67px, 9999px, 12px, 0); transform: skew(0.8deg); }
-  60% { clip: rect(23px, 9999px, 88px, 0); transform: skew(0.3deg); }
-  80% { clip: rect(90px, 9999px, 45px, 0); transform: skew(0.6deg); }
-  100% { clip: rect(10px, 9999px, 34px, 0); transform: skew(0.1deg); }
-}
-
-.glitch-text {
-  animation: glitch 1s infinite linear alternate-reverse;
+  box-shadow: 0 0 30px rgba(255, 59, 48, 0.2);
 }

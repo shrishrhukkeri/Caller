@@ -25,7 +25,6 @@ function App() {
   }, []);
 
   const handleAutoEnd = useCallback(() => {
-    // Wait 0.4 seconds after audio ends
     setTimeout(() => {
       setCallStatus('idle');
       playEndBeep();
@@ -39,14 +38,12 @@ function App() {
     setCallStatus('calling');
     playRingtone();
 
-    // Simulate connection delay
     setTimeout(() => {
       if (number === SECRET_NUMBER) {
         setCallStatus('connected');
         playVoiceClue(handleAutoEnd);
       } else {
         setCallStatus('failed');
-        // Custom failure MP3
         playFailureMessage(handleAutoEnd);
       }
     }, 3000);
@@ -69,10 +66,17 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ 
+        flex: 1, 
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        width: '100%'
+      }}>
         <PhoneDisplay number={number} onDelete={handleDelete} />
         
-        <div style={{ marginTop: 'auto', marginBottom: '20px' }}>
+        <div style={{ width: '100%', maxWidth: '320px' }}>
           <Keypad onKeyPress={handleKeyPress} />
           
           <div className="call-button-container">
@@ -82,15 +86,6 @@ function App() {
           </div>
         </div>
       </div>
-      
-      {/* Decorative Home Bar */}
-      <div style={{ 
-        width: '120px', 
-        height: '5px', 
-        background: 'rgba(255,255,255,0.2)', 
-        borderRadius: '10px',
-        margin: '20px auto 0'
-      }} />
     </div>
   );
 }
