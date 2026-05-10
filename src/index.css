@@ -30,7 +30,6 @@ body {
   height: 100svh;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .phone-container {
@@ -40,9 +39,11 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  /* Add significant bottom padding for mobile browser bars */
-  padding: 20px 20px calc(80px + env(safe-area-inset-bottom));
+  /* Aggressive padding to push everything up away from the bottom bar */
+  padding: 5svh 20px 25svh;
   overflow: hidden;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* Glass panel for the call screen overlay */
@@ -57,16 +58,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  padding-bottom: 20svh;
 }
 
 /* Keypad Styles */
 .keypad-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(15px, 5vw, 25px);
+  gap: clamp(10px, 4vw, 20px); /* Reduced gap */
   width: 100%;
-  max-width: 320px;
+  max-width: 280px; /* Reduced max-width */
   margin: 0 auto;
 }
 
@@ -91,31 +92,29 @@ body {
 }
 
 .key-number {
-  font-size: clamp(28px, 9vw, 36px);
+  font-size: clamp(24px, 8vw, 32px); /* Slightly smaller */
   font-weight: 400;
   line-height: 1;
 }
 
 .key-letters {
-  font-size: clamp(8px, 2vw, 10px);
+  font-size: clamp(7px, 2vw, 9px);
   font-weight: 600;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.4);
-  margin-top: 2px;
+  margin-top: 1px;
   text-transform: uppercase;
 }
 
 .call-button-container {
-  margin-top: clamp(30px, 10vw, 50px);
+  margin-top: clamp(20px, 6vw, 40px);
   display: flex;
   justify-content: center;
-  /* Extra spacing to lift the button higher */
-  padding-bottom: 20px; 
 }
 
 .call-button {
-  width: clamp(70px, 20vw, 85px);
-  height: clamp(70px, 20vw, 85px);
+  width: clamp(60px, 16vw, 75px); /* Slightly smaller */
+  height: clamp(60px, 16vw, 75px);
   border-radius: 50%;
   background: var(--accent-green);
   border: none;

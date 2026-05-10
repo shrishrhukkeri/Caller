@@ -66,25 +66,15 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div style={{ 
-        flex: 1, 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        width: '100%',
-        paddingBottom: '40px' // Shift the "center" slightly upwards
-      }}>
-        <PhoneDisplay number={number} onDelete={handleDelete} />
+      <PhoneDisplay number={number} onDelete={handleDelete} />
+      
+      <div style={{ width: '100%', maxWidth: '320px' }}>
+        <Keypad onKeyPress={handleKeyPress} />
         
-        <div style={{ width: '100%', maxWidth: '320px' }}>
-          <Keypad onKeyPress={handleKeyPress} />
-          
-          <div className="call-button-container">
-            <button className="call-button" onClick={startCall}>
-              <Phone size={32} fill="white" />
-            </button>
-          </div>
+        <div className="call-button-container">
+          <button className="call-button" onClick={startCall}>
+            <Phone size={32} fill="white" />
+          </button>
         </div>
       </div>
     </div>
