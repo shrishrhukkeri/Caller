@@ -6,7 +6,7 @@ import { PhoneDisplay } from './components/PhoneDisplay';
 import { CallScreen } from './components/CallScreen';
 import { useAudio } from './hooks/useAudio';
 
-const SECRET_NUMBER = "784512";
+const SECRET_NUMBER = "0601446427";
 
 function App() {
   const [number, setNumber] = useState('');
