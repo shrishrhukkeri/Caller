@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PhoneOff, Mic, Video, Volume2, Plus, User, GripVertical } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface CallScreenProps {
   number: string;
