@@ -72,7 +72,8 @@ function App() {
         flexDirection: 'column', 
         justifyContent: 'center', 
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        paddingBottom: '40px' // Shift the "center" slightly upwards
       }}>
         <PhoneDisplay number={number} onDelete={handleDelete} />
         
