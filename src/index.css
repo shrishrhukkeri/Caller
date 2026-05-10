@@ -39,8 +39,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  /* Aggressive padding to push everything up away from the bottom bar */
-  padding: 5svh 20px 25svh;
+  /* Balanced padding to keep UI large but safe */
+  padding: 5svh 25px 20svh;
   overflow: hidden;
   justify-content: flex-start;
   align-items: center;
@@ -58,16 +58,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20svh;
+  padding-bottom: 15svh;
 }
 
 /* Keypad Styles */
 .keypad-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(10px, 4vw, 20px); /* Reduced gap */
+  gap: clamp(15px, 5vw, 25px); /* Increased gap */
   width: 100%;
-  max-width: 280px; /* Reduced max-width */
+  max-width: 320px; /* Increased max-width */
   margin: 0 auto;
 }
 
@@ -92,29 +92,29 @@ body {
 }
 
 .key-number {
-  font-size: clamp(24px, 8vw, 32px); /* Slightly smaller */
+  font-size: clamp(28px, 9vw, 36px); /* Increased size */
   font-weight: 400;
   line-height: 1;
 }
 
 .key-letters {
-  font-size: clamp(7px, 2vw, 9px);
+  font-size: clamp(8px, 2vw, 10px);
   font-weight: 600;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.4);
-  margin-top: 1px;
+  margin-top: 2px;
   text-transform: uppercase;
 }
 
 .call-button-container {
-  margin-top: clamp(20px, 6vw, 40px);
+  margin-top: clamp(30px, 10vw, 50px);
   display: flex;
   justify-content: center;
 }
 
 .call-button {
-  width: clamp(60px, 16vw, 75px); /* Slightly smaller */
-  height: clamp(60px, 16vw, 75px);
+  width: clamp(70px, 20vw, 85px); /* Increased size */
+  height: clamp(70px, 20vw, 85px);
   border-radius: 50%;
   background: var(--accent-green);
   border: none;
